@@ -1,0 +1,30 @@
+#include <Arduino.h>
+    // Define the input pins
+   const int pinX = 2;
+   const int pinY = 3;
+  
+   // Define the output pin
+   const int pinZ = 4;
+  void setup() {
+   // Set input pins
+   pinMode(pinX, INPUT);
+    pinMode(pinY, INPUT);
+ 
+   // Set output pin
+    pinMode(pinZ, OUTPUT);
+  }
+ 
+  void loop() {
+    // Read the input values
+    int X = digitalRead(pinX);
+    int Y = digitalRead(pinY);
+ 
+    // Compute the XOR operation
+    int Z = (!X && Y) || (X && !Y);
+ 
+    // Write the result to the output pin
+    digitalWrite(pinZ, Z);
+ 
+    // Delay for visual feedback
+    delay(500);
+ }
