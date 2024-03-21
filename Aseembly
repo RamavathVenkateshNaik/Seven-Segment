@@ -1,0 +1,30 @@
+// Define the pins for input X and Y
+const int X_pin = 2;
+const int Y_pin = 3;
+
+// Define the pin for output Z (LED)
+const int Z_pin = 4;
+
+void setup() {
+  // Set X and Y pins as inputs
+  pinMode(X_pin, INPUT);
+  pinMode(Y_pin, INPUT);
+  
+  // Set Z pin as output
+  pinMode(Z_pin, OUTPUT);
+}
+
+void loop() {
+  // Read the binary values of X and Y
+  int X_value = digitalRead(X_pin);
+  int Y_value = digitalRead(Y_pin);
+  
+  // Perform XOR operation
+  int Z_value = (!X_value && Y_value) || (X_value && !Y_value);
+  
+  // Output Z value to LED
+  digitalWrite(Z_pin, Z_value);
+  
+  // Delay for visualization
+  delay(500);
+}
